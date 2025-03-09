@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('./img/3.jpg'); /* Example background */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+/* Navbar styles */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav .btn {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background: #0056b3;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  margin-right: 4%;
+}
+
+nav .btn:hover {
+  background: #004080;
+}
+
+/* Auth container styles for glass effect */
+.auth-container {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Glass effect */
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 10;
+}
+
+.auth-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: white;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.auth-container input:focus {
+  background: rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+
+.auth-container button {
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #ffb300;
+}
+
+.auth-container p {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.auth-container p a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-container p a:hover {
+  color: #ffb300;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Navbar for mobile */
+  nav {
+    padding: 15px;
+  }
+
+  nav .btn {
+    padding: 8px 15px;
+    margin: 5px 5px;
+    margin-right: 7%;
+  }
+
+  /* Auth container */
+  .auth-container {
+    width: 80%; /* Make container take more width on smaller screens */
+    padding: 20px;
+  }
+
+  .auth-container h2 {
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .auth-container input {
+    font-size: 0.9rem; /* Smaller input font size */
+  }
+
+  .auth-container button {
+    font-size: 0.9rem; /* Smaller button font size */
+    padding: 8px 16px; /* Adjust button padding */
+  }
+
+  .auth-container p {
+    font-size: 0.9rem; /* Smaller text for the paragraph */
+  }
+}
+
+/* Further small screen adjustments for very small screens */
+@media (max-width: 480px) {
+  /* Auth container adjustments */
+  .auth-container {
+    width: 90%; /* Full width on very small screens */
+    padding: 15px;
+  }
+
+  .auth-container h2 {
+    font-size: 18px; /* Further adjust heading size */
+  }
+
+  .auth-container input {
+    font-size: 0.8rem; /* Even smaller font size for inputs */
+  }
+
+  .auth-container button {
+    font-size: 0.8rem; /* Smaller button font size */
+    padding: 6px 12px; /* Adjust padding for smaller screens */
+  }
+
+  .auth-container p {
+    font-size: 0.8rem; /* Smaller text for the paragraph */
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html" class="btn">Home</a>
+    <a href="register.html" class="btn">Register</a>
+  </nav>
+
+  <!-- Login Form -->
+  <div class="auth-container">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button id="loginBtn">Login</button>
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+  </div>
+
+  <!-- Include Firebase and auth.js -->
+  <script type="module" src="js/auth.js"></script>
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get the email and password values from the form
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Call the Firebase login function
+      loginUser(email, password);
+    });
+  </script>
+</body>
+</html>

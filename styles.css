@@ -1,0 +1,99 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* Header */
+header {
+    background: rgba(158, 168, 179, 0.4); /* Default transparent background */
+    backdrop-filter: blur(9px); /* Adds a blur effect for better readability */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed; /* Keeps the navbar at the top while scrolling */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keeps the navbar above other content */
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+header .logo {
+    flex-grow: 1; /* Ensures the logo takes available space */
+    text-align: left; /* Aligns the logo to the left */
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end; /* Aligns the nav items to the right */
+}
+
+nav .btn {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    background: #0056b3;
+    border-radius: 5px;
+    margin-right: 15%;
+}
+
+nav .btn:hover {
+    background: #004080;
+}
+
+/* Hero Section */
+.hero {
+    background: url('./img/4.jpg') center/cover no-repeat;
+    color: white;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px; /* Adjusts for the fixed navbar */
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    padding: 10px 20px;
+    background: #ffcc00;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.cta-btn:hover {
+    background: #ffb300;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    background: #333;
+    color: white;
+    padding: 10px;
+}
